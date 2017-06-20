@@ -76,11 +76,24 @@ PROJECT(PCRE C CXX)
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.0)
 CMAKE_POLICY(SET CMP0026 OLD)
 
+
+SET(ZLIB_ROOT /usr/local/opt/zlib CACHE LOCATION "where was zlib built?")
+SET(BZip2_DIR /usr/local/opt/bzip2 CACHE LOCATION "where was lbzip2 built?")
+#SET(CUSTOM_DIR
+#        ${ZLIB_ROOT}
+#        ${BZip2_DIR})
+#SET(CMAKE_FIND_ROOT_PATH ${CUSTOM_DIR})
+#SET(CMAKE_PREFIX_PATH ${CUSTOM_DIR})
+#SET(CMAKE_FIND_FRAMEWORK LAST)
+#SET(CMAKE_FIND_APPBUNDLE LAST)
+
+#SET(CMAKE_FIND_ROOT_PATH  '/usr/local/Cellar/libzip/1.1.2' '/usr/local/opt/lbzip2')
+
 SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake) # for FindReadline.cmake
 
 # external packages
-FIND_PACKAGE( BZip2 )
-FIND_PACKAGE( ZLIB )
+FIND_PACKAGE( BZip2 1.0.6)
+FIND_PACKAGE( ZLIB 1.2.11)
 FIND_PACKAGE( Readline )
 FIND_PACKAGE( Editline )
 
